@@ -23,13 +23,24 @@ export default function CategoryChart({ products }) {
         {categories.length} categories.
       </p>
 
-      <ul>
-        {categoryCounts.map((item) => (
-          <li key={item.category}>
-            {item.category}: {item.count}
-          </li>
-        ))}
-      </ul>
+      <div className="category-chart-rows">
+        {categoryCounts.map((item) => {
+          const widthPct = maxCount === 0 ? 0 : (item.count / maxCount) * 100;
+          return (
+            <div key={item.category} className="category-chart-row">
+              <span className="category-chart-label">{item.category}</span>
+              <div className="category-chart-bar-wrapper">
+                <div
+                  className="category-chart-bar"
+                  style={{ width: `${widthPct}%` }}
+                />
+              </div>
+
+              <span className="category-chart-value">{item.count}</span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
