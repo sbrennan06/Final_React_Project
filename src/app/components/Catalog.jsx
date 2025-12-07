@@ -66,11 +66,11 @@ export default function Catalog() {
     const timer = setInterval(() => {
       setProducts((prev) =>
         prev.map((p) => {
-          if (p.stock === 0 || Math.random() > 0.4) return p; // ~40% chance
+          if (p.stock <= 1 || Math.random() > 0.4) return p; // ~40% chance
           return { ...p, stock: Math.max(0, p.stock - 1) };
         })
       );
-    }, 5000);
+    }, 10000000000);
 
     return () => clearInterval(timer); // cleanup
   }, []);
