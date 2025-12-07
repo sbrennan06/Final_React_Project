@@ -1,8 +1,11 @@
 "use client";
 
-export default function ProductCard({ product, onAdd }) {
+export default function ProductCard({ product, quantity = 0, onAdd }) {
   const { name, price, category, stock } = product;
-  const out = stock === 0;
+
+  const remaining = stock - quantity;
+  const out = remaining <= 0;
+
   return (
     <div className="product-card">
       <div>

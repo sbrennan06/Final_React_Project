@@ -21,7 +21,16 @@ export default function Catalog() {
 
   //add to cart function - with increment, decrement, and reset
   function addToCart(product) {
-    setCart((prev) => ({ ...prev, [product.id]: (prev[product.id] || 0) + 1 }));
+    setCart((prev) => {
+      const currentQty = prev[product.id] || 0;
+
+      //Don't allow more than the available stock
+      if (currentQty >= product.stock) {
+        return prev;
+      }
+
+      return { ...prev, [product.id]: currentQty + 1 };
+    });
   }
 
   function decrementItem(id) {
@@ -117,7 +126,7 @@ export default function Catalog() {
         onReset={resetCart}
       />
 
-      <ProductList products={filtered} onAdd={addToCart} />
+      <ProductList products={filtered} cart={cart} onAdd={addToCart} />
     </div>
   );
 }

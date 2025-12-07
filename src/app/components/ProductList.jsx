@@ -2,15 +2,18 @@
 
 import ProductCard from "./ProductCard";
 
-export default function ProductList({ products, onAdd }) {
+export default function ProductList({ products, cart, onAdd }) {
   return (
     <div>
       <ul>
-        {products.map((p) => (
-          <li key={p.id}>
-            <ProductCard product={p} onAdd={onAdd} />
-          </li>
-        ))}
+        {products.map((p) => {
+          const quantity = cart[p.id] || 0;
+          return (
+            <li key={p.id}>
+              <ProductCard product={p} quantity={quantity} onAdd={onAdd} />
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
