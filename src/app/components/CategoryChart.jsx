@@ -12,6 +12,8 @@ export default function CategoryChart({ products }) {
     return { category: cat, count };
   });
 
+  const maxCount = Math.max(...categoryCounts.map((c) => c.count), 0);
+
   return (
     <div className="category-chart">
       <h2>Products by Category</h2>
