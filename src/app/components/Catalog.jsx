@@ -105,7 +105,7 @@ export default function Catalog() {
 
       <PriceFilter value={maxPrice} onChange={setMaxPrice} />
 
-      <CategoryChart />
+      <CategoryChart products={filtered} />
 
       <p>{filtered.length} shown</p>
       <CartSummary
