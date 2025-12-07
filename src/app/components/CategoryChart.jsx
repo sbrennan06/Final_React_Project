@@ -4,18 +4,27 @@ export default function CategoryChart({ products }) {
     return null;
   }
 
+  const totalShown = products.length;
+  const categories = ["Electronics", "Furniture", "Books"];
+
+  const categoryCounts = categories.map((cat) => {
+    const count = products.filter((p) => p.category === cat).length;
+    return { category: cat, count };
+  });
+
   return (
     <div className="category-chart">
       <h2>Products by Category</h2>
+
       <p>
-        {" "}
-        View {products.length} product {products.length !== 1 ? "s" : ""}.
+        Showing {totalShown} product{totalShown !== 1 ? "s" : ""} across{" "}
+        {categories.length} categories.
       </p>
 
       <ul>
-        {products.map((p) => (
-          <li key={p.id}>
-            {p.name} - Category: {p.category}
+        {categoryCounts.map((item) => (
+          <li key={item.category}>
+            {item.category}: {item.count}
           </li>
         ))}
       </ul>
