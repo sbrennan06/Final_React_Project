@@ -5,6 +5,7 @@ import CategoryFilter from "./CategoryFilter";
 import PriceFilter from "./PriceFilter";
 import CartSummary from "./CartSummary";
 import StatusMessage from "./StatusMessage";
+import CategoryChart from "./CategoryChart";
 
 import { useEffect, useState } from "react";
 
