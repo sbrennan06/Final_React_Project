@@ -10,7 +10,7 @@ The Mini-Storefront is a basic build where shoppers can browse products, filter 
 2. Open the project folder in VS Code.
 3. Install Dependencies: npm install
 4. Start the development server: npm run dev
-5. Open `http://localhost:3000`in your browser to see the result.
+5. Open `http://localhost:3000` in your browser to see the result.
 
 ## Project Enhancement Overview
 
